@@ -1,0 +1,7 @@
+{
+  "name": "SmartSummonApplication",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

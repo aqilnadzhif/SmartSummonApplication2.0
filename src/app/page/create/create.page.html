@@ -1,0 +1,79 @@
+<ion-header>
+    <ion-toolbar color="secondary">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+          </ion-buttons>
+      <ion-title> Saman</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  
+  <ion-content fullscreen>
+
+    <ion-item>
+      <ion-label class="label-area1" >Nama : </ion-label>
+      <div class="item_view" *ngIf="rule == 'student'">{{user.nama}}</div>
+    </ion-item>
+    <ion-item>
+      <ion-label class="label-area1" >No.Telefon : </ion-label>
+      <div class="item_view" *ngIf="rule == 'student'">{{user.notel}}</div>
+    </ion-item>
+    <ion-item>
+      <ion-label class="label-area1" >No.Kad Pelajar : </ion-label>
+      <div class="item_view" *ngIf="rule == 'student'">{{user.id}}</div>
+    </ion-item>
+    <ion-item>
+      <ion-label class="label-area1" >No.Kad Pengenalan : </ion-label>
+      <div class="item_view" *ngIf="rule == 'student'">{{user.nokp}}</div>
+    </ion-item>
+    <ion-item>
+      <ion-label class="label-area1" >Kod Program : </ion-label>
+      <div class="item_view" *ngIf="rule == 'student'">{{user.kodprogram}}</div>
+    </ion-item>
+    
+      <ion-item>
+          <ion-label class="label-area1" >Tarikh/Masa</ion-label>
+          <ion-datetime class="label-area1" displayFormat="DD MMM, h:mm A" [(ngModel)]="myDate" [disabled]="true" ></ion-datetime>
+        </ion-item>
+      <ion-list>
+        <ion-item>
+          <ion-label class="label-area1" >Baju</ion-label>
+          <ion-select multiple="true" cancelText="Tidak" okText="Ya">
+            <ion-select-option class="label-area1" value="Baju1">Jarang</ion-select-option>
+            <ion-select-option class="label-area1" value="Baju2">Tidak berkolar pada waktu pejabat</ion-select-option>
+            <ion-select-option class="label-area1" value="Baju3">Tidak dimasukkan ke dalam seluar </ion-select-option>
+            <ion-select-option class="label-area1" value="Baju4">Tidak berlengan</ion-select-option>
+            <ion-select-option class="label-area1" value="Baju5">Mempunyai tulisan, perkataan atau gambar liar/lucah</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+            <ion-label class="label-area1" >Seluar</ion-label>
+            <ion-select multiple="true" cancelText="Tidak" okText="Ya">
+              <ion-select-option value="Seluar1">Memakai seluar pendek</ion-select-option>
+              <ion-select-option value="Seluar2">Ketat/Koyak/Lusuh/Jarang</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+              <ion-label class="label-area1" >Kasut</ion-label>
+              <ion-select multiple="true" cancelText="Tidak" okText="Ya">
+                <ion-select-option value="Kasut">Memakai selipar</ion-select-option>
+              </ion-select>
+            </ion-item>
+
+            <ion-item>
+                <ion-label class="label-area1" >Rambut</ion-label>
+                <ion-select multiple="true" cancelText="Tidak" okText="Ya">
+                  <ion-select-option value="Rambut1">Panjang/Tidak kemas</ion-select-option>
+                  <ion-select-option value="Rambut2">Mewarnakan rambut</ion-select-option>
+                </ion-select>
+              </ion-item>
+          </ion-list>
+
+          <section>
+              <ion-button class="button1" expand="block" >Saman</ion-button>
+            </section>
+
+    </ion-content>
+

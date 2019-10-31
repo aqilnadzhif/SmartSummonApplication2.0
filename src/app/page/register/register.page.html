@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Daftar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input [(ngModel)]="Email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Posisi</ion-label>
+      <ion-input [(ngModel)]="position"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Jawatan</ion-label>
+      <ion-input [(ngModel)]="jawatan"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">No Telefon</ion-label>
+      <ion-input [(ngModel)]="phone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Nama</ion-label>
+      <ion-input [(ngModel)]="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Katalaluan</ion-label>
+      <ion-input [(ngModel)]="katalaluan"></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" (click)="register()" >daftar</ion-button>
+  
+
+</ion-content>

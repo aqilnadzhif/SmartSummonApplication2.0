@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Laman Utama
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="label-area" *ngIf="user">
+    <div class="label">Selamat Datang</div>
+    <div class="line"></div>
+    <div class="item" *ngIf="rule != 'student'">{{user.name}}</div>
+    <div class="item" *ngIf="rule == 'student'">{{user.nama}}</div>
+    <div class="item_jawat"  *ngIf="rule != 'student'">( {{user.jawatan}} )</div>
+  </div>
+    
+</ion-content>

@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-toolbar color="secondary">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+      <ion-title> Carian</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+
+      <div class="input-area">
+    
+        <div class="label">Carian Pelajar</div>
+    
+        <div class="input-box">
+          <ion-input placeholder="ID Pelajar" [(ngModel)]="id_stdnt"></ion-input>
+        </div>
+    
+      </div>
+    
+      <ion-button class="button1" expand="full" (click)='login()' > Cari </ion-button>
+    
+    </ion-content>

@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Log Masuk</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+    <ion-avatar>
+        <img class= "image" src="https://www.pinclipart.com/picdir/middle/355-3553881_stockvader-predicted-adig-user-profile-icon-png-clipart.png">
+    </ion-avatar>
+
+  <div *ngIf="rule == 'lect'" class="input-area">
+
+    <div class="label">Log Masuk Pensyarah</div>
+
+    <div class="input-box">
+      <ion-input placeholder="Email" [(ngModel)]="email_lect"></ion-input>
+    </div>
+
+    <div class="input-box">
+      <ion-input type="password" placeholder="Katalaluan" [(ngModel)]="pswd_lect" show-hide-input > </ion-input>
+    </div>
+
+  </div>
+
+  <div *ngIf="rule == 'admin'" class="input-area">
+
+    <div class="label">Log Masuk Admin</div>
+
+    <div class="input-box">
+      <ion-input placeholder="Email" [(ngModel)]="email_admin"></ion-input>
+    </div>
+
+    <div class="input-box">
+      <ion-input type="password" placeholder="Katalaluan" [(ngModel)]="pswd_admin" show-hide-input ></ion-input>
+    </div>
+
+
+  </div>
+
+  <div *ngIf="rule == 'student'" class="input-area">
+
+    <div class="label">Log Masuk Pelajar</div>
+
+    <div class="input-box">
+      <ion-input placeholder="ID Pelajar" [(ngModel)]="id_stdnt"></ion-input>
+    </div>
+
+    <div class="input-box">
+      <ion-input type="password" placeholder="Katalaluan" [(ngModel)]="pswd_stdnt" show-hide-input ></ion-input>
+    </div>
+
+  </div>
+
+  <ion-button class="button1" expand="full" (click)='login()' >Log Masuk</ion-button>
+  
+  <div *ngIf="rule != 'student'">
+  <ion-button class="button2" expand="full" (click)='register()'>Daftar</ion-button>
+  </div>
+
+</ion-content>

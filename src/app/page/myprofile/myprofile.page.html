@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title> Profil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-avatar>
+        <img class= "image" src="https://www.pinclipart.com/picdir/middle/355-3553881_stockvader-predicted-adig-user-profile-icon-png-clipart.png">
+    </ion-avatar>
+
+    <div *ngIf="user" class="label-area">
+        
+        <div class="item" *ngIf="rule != 'student'" >{{user.name}}</div> 
+        <div class="item" *ngIf="rule == 'student'">{{user.nama}}</div>
+        <div class="line"></div>
+
+    </div>
+
+    <div *ngIf="user">
+
+      <div *ngIf="rule == 'student'">
+        <ion-label class="label-area1" >ID Pelajar : </ion-label>
+        <div class="item_view" *ngIf="rule == 'student'">{{user.id}}</div>
+      
+        <ion-label class="label-area1" >No. Kad Pengenalan : </ion-label>
+        <div class="item_view" *ngIf="rule == 'student'">{{user.nokp}}</div>
+      
+        <ion-label class="label-area1" >Kod Program : </ion-label>
+        <div class="item_view" *ngIf="rule == 'student'">{{user.kodprogram}}</div>
+      </div>
+
+      <ion-label class="label-area1" >Email : </ion-label>
+      <div class="item_view" *ngIf="rule != 'student'">{{user.email}}</div>
+      <div class="item_view" *ngIf="rule == 'student'">{{user.email}}</div>
+
+
+        <ion-label class="label-area1" >No. Telefon : </ion-label>
+        <div class="item_view" *ngIf="rule != 'student'">{{user.phone}}</div>
+        <div class="item_view" *ngIf="rule == 'student'">{{user.notel}}</div>
+        
+        <!-- <ion-label>Posisi : </ion-label> -->
+        <!-- <div class="item_position"  *ngIf="rule != 'student'">( {{user.position}} )</div> -->
+
+      <div *ngIf="rule != 'student'">
+        <ion-label class="label-area1" >Jawatan : </ion-label>
+        <div class="item_view" *ngIf="rule != 'student'"> {{user.jawatan}} </div>
+      </div>
+
+        <ion-label class="label-area1" >Katalaluan : </ion-label>
+        <div class="item_view" *ngIf="rule != 'student'">{{user.katalaluan}}</div>
+        <div class="item_view" *ngIf="rule == 'student'">{{user.katalaluan}}</div> 
+        
+
+        <ion-button class="button1" expand="full" (click)="register()" > Kemaskini </ion-button>
+      </div>
+
+</ion-content>
