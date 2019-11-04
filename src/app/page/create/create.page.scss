@@ -13,12 +13,14 @@ ion-content{
 }
 
 .alert-checkbox-label.sc-ion-alert-md {
-    flex: 1;
-    color: var(--ion-color-step-850,#262626);
-    font-size: 16px;
-    text-overflow: ellipsis;
-    white-space: pre-wrap;
-    overflow: hidden;
+    height: auto;
+    contain: content;
+}
+
+.alert-checkbox-label.sc-ion-alert-md {
+
+    white-space: normal!important;
+
   }
 
 .button1{
