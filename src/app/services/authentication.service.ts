@@ -12,7 +12,7 @@ const TOKEN_KEY = 'auth-token';
 })
 export class AuthenticationService {
 
-  rule : any = null;
+  rule : any = null; 
   userProfile : any = null;
   pensyarah : any = null;
  
