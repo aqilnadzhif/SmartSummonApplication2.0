@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
-  public appPages : any;
+  public appPages : any = null;
 
   rule : any;
 

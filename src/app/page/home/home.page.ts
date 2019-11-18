@@ -20,7 +20,7 @@ export class HomePage implements OnInit{
   }
 
   ngOnInit() {
-    
+    this.sidemenu.enable(true);
   }
 
   ionViewWillEnter() {

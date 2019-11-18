@@ -12,38 +12,39 @@
 
     <ion-item>
       <ion-label class="label-area1" >Nama : </ion-label>
-      <div class="item_view" *ngIf="rule == 'student'">{{user.nama}}</div>
+      <!-- <div class="item_view">{{user.nama}}</div> -->
+      <div class="item_view">{{detailStudent.nama}}</div>
     </ion-item>
     <ion-item>
       <ion-label class="label-area1" >No.Telefon : </ion-label>
-      <div class="item_view" *ngIf="rule == 'student'">{{user.notel}}</div>
+      <div class="item_view">{{detailStudent.notel}}</div>
     </ion-item>
     <ion-item>
       <ion-label class="label-area1" >No.Kad Pelajar : </ion-label>
-      <div class="item_view" *ngIf="rule == 'student'">{{user.id}}</div>
+      <div class="item_view">{{detailStudent.id}}</div>
     </ion-item>
     <ion-item>
       <ion-label class="label-area1" >No.Kad Pengenalan : </ion-label>
-      <div class="item_view" *ngIf="rule == 'student'">{{user.nokp}}</div>
+      <div class="item_view">{{detailStudent.nokp}}</div>
     </ion-item>
     <ion-item>
       <ion-label class="label-area1" >Kod Program : </ion-label>
-      <div class="item_view" *ngIf="rule == 'student'">{{user.kodprogram}}</div>
+      <div class="item_view">{{detailStudent.kodprogram}}</div>
     </ion-item>
-    
-      <ion-item>
-          <ion-label class="label-area1" >Tarikh/Masa</ion-label>
-          <ion-datetime class="label-area1" displayFormat="DD MMM, h:mm A" [(ngModel)]="myDate" [disabled]="true" ></ion-datetime>
-        </ion-item>
+    <ion-item>
+      <ion-label class="label-area1" >Tarikh/Masa :</ion-label>
+      <ion-datetime class="item_view" displayFormat="DD MMM, h:mm A" [(ngModel)]="myDate" disabled  ></ion-datetime>
+    </ion-item>
+
       <ion-list>
         <ion-item>
           <ion-label class="label-area1" >Baju</ion-label>
-          <ion-select text-wrap multiple="true" cancelText="Tidak" okText="Ya">
-            <ion-select-option text-wrap value="Baju1">Jarang</ion-select-option>
-            <ion-select-option text-wrap value="Baju2">Tidak berkolar pada waktu pejabat</ion-select-option>
-            <ion-select-option text-wrap value="Baju3">Tidak dimasukkan ke dalam seluar </ion-select-option>
-            <ion-select-option text-wrap value="Baju4">Tidak berlengan</ion-select-option>
-            <ion-select-option text-wrap class="alert-checkbox-label.sc-ion-alert-md" value="Baju5">Mempunyai tulisan, perkataan atau gambar liar/lucah</ion-select-option>
+          <ion-select multiple="true" cancelText="Tidak" okText="Ya">
+            <ion-select-option  value="Baju1">Jarang</ion-select-option>
+            <ion-select-option  value="Baju2">Tidak berkolar pada waktu pejabat</ion-select-option>
+            <ion-select-option  value="Baju3">Tidak dimasukkan ke dalam seluar </ion-select-option>
+            <ion-select-option  value="Baju4">Tidak berlengan</ion-select-option>
+            <ion-select-option  class="alert-checkbox-label.sc-ion-alert-md" value="Baju5">Mempunyai tulisan, perkataan atau gambar liar/lucah</ion-select-option>
           </ion-select>
         </ion-item>
 
@@ -73,11 +74,11 @@
           </ion-list>
           <ion-item>
             <ion-label class="label-area1" >Kesalahan : </ion-label>
-            <!-- <div class="item_view" *ngIf="rule == 'student'">{{user.kodprogram}}</div> -->
+            <!-- <div class="item_view">{{user.kodprogram}}</div> -->
           </ion-item>
           <ion-item>
             <ion-label class="label-area1" >Jumlah Harga : </ion-label>
-            <!-- <div class="item_view" *ngIf="rule == 'student'">{{user.kodprogram}}</div> -->
+            <!-- <div class="item_view">{{user.kodprogram}}</div> -->
           </ion-item>
 
           <ion-item>
@@ -90,10 +91,10 @@
             </section>
 
             <ion-item>
-              <ion-label text-wrap class="label-area2" >Kompaun ini hendaklah dijelaskan dalam tempoh 5 hari. Sekiranya tidak boleh dijelaskan dalam tempoh yang ditetapkan, kadar maksimum boleh dikenakan </ion-label>
+              <ion-label class="ion-text-wrap" class="label-area2" >Kompaun ini hendaklah dijelaskan dalam tempoh 5 hari. Sekiranya tidak boleh dijelaskan dalam tempoh yang ditetapkan, kadar maksimum boleh dikenakan </ion-label>
             </ion-item>
             <ion-item>
-                <ion-label text-wrap class="label-area2" >Di bawah Kaedah 26A(1) Bahagian II, Jadual Kedua Akta 174, kesalahan
+                <ion-label class="ion-text-wrap" class="label-area2" >Di bawah Kaedah 26A(1) Bahagian II, Jadual Kedua Akta 174, kesalahan
                   ini boleh dikenakan kompaun tidak melebihi RM50.00 bagi setiap kesalahan. Anda dikehendaki membayar kompaun
                   yang telah ditetapkan sebelum tarikh yang ditetapkan. Jika kompaun ini tidak dijelaskan pada tarikh tersebut
                   mengikut Kaedah 64, Bahagian V, Jadual Kedua Akta 174(1976), tindakan menggantung dari menjadi pelajar UiTM 

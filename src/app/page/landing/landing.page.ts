@@ -20,13 +20,13 @@ export class LandingPage implements OnInit {
   }
 
   ionViewWillEnter() {
-    // this.sidemenu.enable(false);
+    this.sidemenu.enable(false);
   }
 
   ionViewDidLeave(){
     console.log("Keluar page landing");
     
-    // this.sidemenu.enable(true);
+    //this.sidemenu.enable(true);
   }
 
   navExtras(data){

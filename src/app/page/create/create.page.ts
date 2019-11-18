@@ -12,9 +12,10 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class CreatePage implements OnInit {
 
-  user : any = null;
-  rule : any = null;
+  user;
   myDate: String = new Date().toISOString();
+
+  detailStudent;
 
 
   constructor(
@@ -22,7 +23,15 @@ export class CreatePage implements OnInit {
     public router: Router,
     public alertCtrl : AlertController
   ) { 
-  
+    let data = this.router.getCurrentNavigation().extras.state.detail;
+    this.user = data;
+    console.log(this.user);
+
+    this.detailStudent = this.user;
+
+    console.log(this.myDate);
+    
+    
   }
 
   ngOnInit() {
@@ -30,7 +39,6 @@ export class CreatePage implements OnInit {
 
   ionViewWillEnter() {
     this.user = this.auth.userProfile;
-    this.rule = this.auth.rule;
 
     console.log('my profile');
   }

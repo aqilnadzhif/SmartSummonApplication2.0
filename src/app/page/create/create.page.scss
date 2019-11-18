@@ -1,15 +1,35 @@
 ion-content{
     // --padding: 25px 20px;
 
-.label-area1 {
-    font-size: 15px;
-    // font-family: "Arial Narrow";
-    
-}
+    ion-item{
+        //display: flex;
+        w
+
+        
+        .label-area1 {
+            font-size: 15px;
+            color: #777;
+            // font-family: "Arial Narrow"; 
+        }
+
+        .item_view{
+            font-size: 15px;
+            font-weight: 600;
+        }
+    }
+
 .label-area2 {
     font-size: 10px;
     // font-family: "Arial Narrow";
     
+}
+
+ion-select{
+    max-width: 70% !important;
+}
+
+.item-interactive-disabled.sc-ion-label-md-h:not(.item-multiple-inputs), .item-interactive-disabled:not(.item-multiple-inputs) .sc-ion-label-md-h {
+    opacity: 1;
 }
 
 .alert-checkbox-label.sc-ion-alert-md {
