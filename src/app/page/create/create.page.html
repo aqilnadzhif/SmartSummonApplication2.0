@@ -39,7 +39,7 @@
       <ion-list>
         <ion-item>
           <ion-label class="label-area1" >Baju</ion-label>
-          <ion-select multiple="true" cancelText="Tidak" okText="Ya">
+          <ion-select multiple="true" cancelText="Tidak" okText="Ya" [(ngModel)]="selectedBaju" (ionChange)="Selected()">
             <ion-select-option  value="Baju1">Jarang</ion-select-option>
             <ion-select-option  value="Baju2">Tidak berkolar pada waktu pejabat</ion-select-option>
             <ion-select-option  value="Baju3">Tidak dimasukkan ke dalam seluar </ion-select-option>
@@ -50,7 +50,7 @@
 
         <ion-item>
             <ion-label class="label-area1" >Seluar</ion-label>
-            <ion-select multiple="true" cancelText="Tidak" okText="Ya">
+            <ion-select multiple="true" cancelText="Tidak" okText="Ya" [(ngModel)]="selectedSeluar" (ionChange)="Selected()">
               <ion-select-option class="alert-checkbox-label.sc-ion-alert-md" value="Seluar1">Memakai seluar pendek</ion-select-option>
               <ion-select-option class="alert-checkbox-label.sc-ion-alert-md" value="Seluar2">Ketat/Koyak/Lusuh/Jarang</ion-select-option>
             </ion-select>
@@ -59,36 +59,38 @@
 
           <ion-item>
               <ion-label class="label-area1" >Kasut</ion-label>
-              <ion-select multiple="true" cancelText="Tidak" okText="Ya">
+              <ion-select multiple="true" cancelText="Tidak" okText="Ya" [(ngModel)]="selectedKasut" (ionChange)="Selected()">
                 <ion-select-option class="alert-checkbox-label.sc-ion-alert-md" value="Kasut">Memakai selipar</ion-select-option>
               </ion-select>
             </ion-item>
 
             <ion-item>
                 <ion-label class="label-area1" >Rambut</ion-label>
-                <ion-select multiple="true" cancelText="Tidak" okText="Ya">
+                <ion-select multiple="true" cancelText="Tidak" okText="Ya" [(ngModel)]="selectedRambut" (ionChange)="Selected()">
                   <ion-select-option class="alert-checkbox-label.sc-ion-alert-md" value="Rambut1">Panjang/Tidak kemas</ion-select-option>
                   <ion-select-option class="alert-checkbox-label.sc-ion-alert-md" value="Rambut2">Mewarnakan rambut</ion-select-option>
                 </ion-select>
               </ion-item>
           </ion-list>
-          <ion-item>
+          <!-- <ion-item>
             <ion-label class="label-area1" >Kesalahan : </ion-label>
-            <!-- <div class="item_view">{{user.kodprogram}}</div> -->
-          </ion-item>
+            <div class="item_view">{{user.kodprogram}}</div>
+          </ion-item> -->
           <ion-item>
             <ion-label class="label-area1" >Jumlah Harga : </ion-label>
+            <div class="item_view" *ngIf="harga != null">RM{{harga}}</div>
             <!-- <div class="item_view">{{user.kodprogram}}</div> -->
           </ion-item>
 
           <ion-item>
             <ion-label class="label-area1" >Pelapor : </ion-label>
+            <div class="item_view">{{userProfile.name}}</div>
             <!-- <div class="item_view" *ngIf="rule != 'student'" >{{user.name}}</div>  -->
           </ion-item>
           
           <section>
-              <ion-button class="button1" expand="block" >Saman</ion-button>
-            </section>
+              <ion-button class="button1" expand="block" (click)="create_saman()">Saman</ion-button>
+          </section>
 
             <ion-item>
               <ion-label class="ion-text-wrap" class="label-area2" >Kompaun ini hendaklah dijelaskan dalam tempoh 5 hari. Sekiranya tidak boleh dijelaskan dalam tempoh yang ditetapkan, kadar maksimum boleh dikenakan </ion-label>

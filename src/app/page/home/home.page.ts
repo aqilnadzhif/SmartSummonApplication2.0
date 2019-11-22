@@ -16,14 +16,14 @@ export class HomePage implements OnInit{
     private sidemenu : MenuController,
     public auth : AuthenticationService
   ) { 
-    // this.sidemenu.enable(true); 
+    //this.sidemenu.enable(true); 
   }
 
   ngOnInit() {
-    this.sidemenu.enable(true);
   }
 
   ionViewWillEnter() {
+    this.sidemenu.enable(true);
     this.user = this.auth.userProfile;
     this.rule = this.auth.rule;
 

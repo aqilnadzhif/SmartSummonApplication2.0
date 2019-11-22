@@ -1,4 +1,4 @@
-import { Platform } from '@ionic/angular';
+import { Platform, AlertController } from '@ionic/angular';
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { BehaviorSubject } from 'rxjs';
@@ -18,7 +18,7 @@ export class AuthenticationService {
  
   authenticationState = new BehaviorSubject(null);
  
-  constructor(private storage: Storage, private plt: Platform) { 
+  constructor(private storage: Storage, private plt: Platform, public alertCtrl : AlertController) { 
     this.plt.ready().then(() => {
       this.checkToken();
     });
@@ -77,6 +77,23 @@ export class AuthenticationService {
  
   isAuthenticated() {
     return this.authenticationState.value;
+  }
+
+
+
+  //---------------------------------------------------------------------------------- other function
+
+  async show_alert(data){
+    let alert = await this.alertCtrl.create({
+      // header : 'Ralat!!!',
+      message : data
+    })
+
+    await alert.present();
+
+    setTimeout(() => {
+      alert.dismiss();
+    }, 1500);
   }
  
 }

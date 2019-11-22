@@ -115,6 +115,9 @@ export class AppComponent {
       this.appPages = null;
     }
 
+    console.log(this.appPages);
+    
+
   }
 
   logout(){
