@@ -5,4 +5,13 @@ ion-content{
     ion-card{
         --background : #fff;
     }
+
+    .harga{
+        text-align: center;
+        padding: 5px 0;
+        margin-top: 10px;
+        border-top: 1px solid #eee;
+        font-weight: 800;
+        font-size: 16px;
+    }
 }

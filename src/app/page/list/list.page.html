@@ -56,11 +56,11 @@
             <div class="ion-padding-start">
               <div *ngIf="item.baju != 'null'">
                 <div *ngFor="let data of item.baju">
-                  <div *ngIf="item.baju == 'Baju1'">- Jarang</div>
-                  <div *ngIf="item.baju == 'Baju2'">- Tidak Berkolar</div>
-                  <div *ngIf="item.baju == 'Baju3'">- Tidak Disamukan dalam seluar</div>
-                  <div *ngIf="item.baju == 'Baju4'">- Tidak berlengan</div>
-                  <div *ngIf="item.baju == 'Baju5'">- Mempunyai tulisan</div>
+                  <div *ngIf="item.baju == 'Baju1'">- Baju Jarang</div>
+                  <div *ngIf="item.baju == 'Baju2'">- Baju Tidak Berkolar</div>
+                  <div *ngIf="item.baju == 'Baju3'">- Baju Tidak Disamukan dalam seluar</div>
+                  <div *ngIf="item.baju == 'Baju4'">- Baju Tidak berlengan</div>
+                  <div *ngIf="item.baju == 'Baju5'">- Baju Mempunyai tulisan</div>
                 </div>
               </div>
             </div>
@@ -69,14 +69,36 @@
             <div class="ion-padding-start">
               <div *ngIf="item.seluar != 'null'">
                 <div *ngFor="let data of item.seluar">
-                  <div *ngIf="item.seluar == 'Seluar1'">- Seluar Pendek</div>
-                  <div *ngIf="item.seluar == 'Seluar2'">- Ketat</div>
+                  <div *ngIf="item.seluar == 'Seluar1'">- Seluar Seluar Pendek</div>
+                  <div *ngIf="item.seluar == 'Seluar2'">- Seluar Ketat</div>
                 </div>
               </div>
             </div>
 
+            <!-- contoh kasut -->
+            <div class="ion-padding-start">
+              <div *ngIf="item.kasut != 'null'">
+                <div *ngFor="let data of item.kasut">
+                  <div *ngIf="item.kasut == 'Kasut'">- Memakai selipar</div>
+                </div>
+              </div>
+            </div>
 
-            
+            <!-- contoh rambut -->
+            <div class="ion-padding-start">
+              <div *ngIf="item.rambut != 'null'">
+                <div *ngFor="let data of item.rambut">
+                  <div *ngIf="item.rambut == 'Rambut1'">- Rambut Panjang/Tidak kemas</div>
+                  <div *ngIf="item.rambut == 'Rambut2'">- Rambut Mewarnakan rambut</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="harga">Jumlah : RM{{item.harga}}</div>
+          <div *ngIf="rule == 'student'">
+            <ion-button expand="block" fill="outline" (click)="request(item)" *ngIf="item.status == 0">Pohon Pengurangan</ion-button>
           </div>
         </ion-card-content>
       </ion-card>

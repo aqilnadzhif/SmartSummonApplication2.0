@@ -23,7 +23,8 @@ const routes: Routes = [
   { path: 'landing', loadChildren: './page/landing/landing.module#LandingPageModule' },
   { path: 'create', loadChildren: './page/create/create.module#CreatePageModule' },
   { path: 'update', loadChildren: './page/update/update.module#UpdatePageModule' },
-  { path: 'search', loadChildren: './page/search/search.module#SearchPageModule' }
+  { path: 'search', loadChildren: './page/search/search.module#SearchPageModule' },  { path: 'list-detail', loadChildren: './page/list-detail/list-detail.module#ListDetailPageModule' }
+
 ];
 
 @NgModule({

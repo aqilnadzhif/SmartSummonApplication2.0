@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { AngularFireAction, AngularFireDatabase } from '@angular/fire/database';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { map } from 'rxjs/operators';
 
 
 @Component({
@@ -31,13 +32,17 @@ export class ListPage implements OnInit {
   }
     
   ngOnInit() {
-    this.getDataFromFireBase();
   }
 
 
   getDataFromFireBase(){
     let dbFire = this.afd.list('saman');
-    dbFire.valueChanges().subscribe(data=>{
+
+    dbFire.snapshotChanges().pipe(
+      map(changes => 
+        changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+      )
+    ).subscribe(data=>{
       console.log(data);
 
       if(this.rule == 'lect'){
@@ -45,7 +50,7 @@ export class ListPage implements OnInit {
           return obj.lect === this.user.email
         })
         console.log(result);
-        this.items= result;
+        this.items= result.reverse();
       }else if(this.rule == 'student'){
         var result:any = data.filter((obj:any)  =>{
           return obj.studentID === this.user.id
@@ -55,8 +60,29 @@ export class ListPage implements OnInit {
       }else if(this.rule == 'admin'){
         this.items= data;
       }
-
+      
     });
+    
+    // dbFire.valueChanges().subscribe(data=>{
+    //   console.log(data);
+
+    //   if(this.rule == 'lect'){
+    //     var result:any = data.filter((obj:any)  =>{
+    //       return obj.lect === this.user.email
+    //     })
+    //     console.log(result);
+    //     this.items= result.reverse();
+    //   }else if(this.rule == 'student'){
+    //     var result:any = data.filter((obj:any)  =>{
+    //       return obj.studentID === this.user.id
+    //     })
+    //     console.log(result);
+    //     this.items= result;
+    //   }else if(this.rule == 'admin'){
+    //     this.items= data;
+    //   }
+
+    // });
 
 
     // this.afd.list('pensyarah/').valueChanges().subscribe(
@@ -65,6 +91,17 @@ export class ListPage implements OnInit {
     //     this.items= data
     //   }
     // )
+  }
+
+  request(item){
+    console.log(item);
+
+    let dbFire = this.afd.list('saman');
+
+    if(this.rule == 'student'){
+      dbFire.update(item.key, {status : 1})
+    }
+    
   }
 
 }
