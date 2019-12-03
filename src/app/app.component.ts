@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
-  public appPages : any = null;
+  public appPages : any = [];
 
   rule : any;
 
@@ -50,6 +50,7 @@ export class AppComponent {
 
   sideMenu(data){
     console.log(data)
+
     if(data == 'lect'){
       this.appPages = [
       {
@@ -86,8 +87,8 @@ export class AppComponent {
       },
       {
         title: 'Senarai Pensyarah',
-        url: '/list',
-        icon: 'list'
+        url: '/list-pensyarah',
+        icon: 'people'
       },
       {
         title: 'Senarai Saman',

@@ -25,8 +25,8 @@
             </div>
             <div>
               status bayaran : 
-              <span *ngIf="item.status == 0" style="color: red;">Belum</span>
-              <span *ngIf="item.status == 2" style="color: green;">Sudah</span>
+              <span *ngIf="item.statusBayaran == 0" style="color: red;">Belum</span>
+              <span *ngIf="item.statusBayaran == 1" style="color: green;">Sudah</span>
             </div>
         </ion-card-content>
       </ion-card>
@@ -44,10 +44,10 @@
             Tarikh  : {{item.tarikh}} &nbsp;&nbsp;&nbsp;
             Masa    : {{item.masa}} 
           </div>
-          <div>
+          <div style="font-weight: bold;">
             status bayaran : 
-            <span *ngIf="item.status == 0" style="color: red;">Belum</span>
-            <span *ngIf="item.status == 2" style="color: green;">Sudah</span>
+            <span *ngIf="item.statusBayaran == 0" style="color: red;">Belum</span>
+            <span *ngIf="item.statusBayaran == 1" style="color: green;">Sudah</span>
           </div>
           <div>
             <div>Kesalahan :</div>
@@ -96,12 +96,52 @@
 
           </div>
 
-          <div class="harga">Jumlah : RM{{item.harga}}</div>
+          <div class="harga" *ngIf="item.statusBayaran == 0">Jumlah : RM{{item.harga}}</div>
+          <div class="harga" *ngIf="item.statusBayaran == 1" style="opacity: 0.4; color: green;">Jumlah : RM{{item.harga}}</div>
           <div *ngIf="rule == 'student'">
-            <ion-button expand="block" fill="outline" (click)="request(item)" *ngIf="item.status == 0">Pohon Pengurangan</ion-button>
+            <ion-button expand="block" (click)="request(item)" *ngIf="item.status == 0 && item.statusBayaran != 1">Pohon Discount</ion-button>
+            <ion-button expand="block" *ngIf="item.status == 1" size="small" shape="round" color="warning" disabled="true" style="opacity: 0.6">Discount Pending</ion-button>
+            <ion-button expand="block" *ngIf="item.status == 2" size="small" shape="round" color="success" disabled="true" style="opacity: 0.6">Discount</ion-button>
+            <ion-button expand="block" *ngIf="item.status == 3" size="small" shape="round" color="danger" disabled="true" style="opacity: 0.6">Pemohonan Ditolak</ion-button>
           </div>
         </ion-card-content>
       </ion-card>
+  </div>
+
+  <div *ngIf="rule == 'admin'">
+    <ion-card *ngFor = "let item of items">
+      <ion-card-header>
+        <ion-card-title>{{item.studentDetail.nama}}</ion-card-title>
+        <ion-card-subtitle>{{item.studentDetail.id}}</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+          <div>
+            Tarikh  : {{item.tarikh}} &nbsp;&nbsp;&nbsp;
+            Masa    : {{item.masa}} 
+          </div>
+          <div style="font-weight: bold;">
+            status bayaran : 
+            <span *ngIf="item.statusBayaran == 0" style="color: red;">Belum</span>
+            <span *ngIf="item.statusBayaran == 1" style="color: green;">Sudah</span>
+          </div>
+
+          <div *ngIf="rule == 'admin'">
+            <ion-button expand="block" *ngIf="item.status == 0" size="small" shape="round" color="medium" disabled="true" style="opacity: 0.6">Tiada Pemohonan</ion-button>
+            <ion-button expand="block" *ngIf="item.status == 1" size="small" shape="round" color="warning" disabled="true" style="opacity: 0.6">Pemohonan Discount</ion-button>
+            <ion-button expand="block" *ngIf="item.status == 2" size="small" shape="round" color="success" disabled="true" style="opacity: 0.5">Discount</ion-button>
+            <ion-button expand="block" *ngIf="item.status == 3" size="small" shape="round" color="danger" disabled="true" style="opacity: 0.5">Pemohonan Ditolak</ion-button>
+          </div>
+
+          <div class="harga" *ngIf="item.statusBayaran == 0">Jumlah : RM{{item.harga}}</div>
+          <div class="harga" *ngIf="item.statusBayaran == 1" style="opacity: 0.4; color: green;">Jumlah : RM{{item.harga}}</div>
+          <div *ngIf="rule == 'admin'">
+            <ion-button expand="block" (click)="request(item)" *ngIf="item.status == 1">Beri Discount</ion-button>
+            <ion-button expand="block" (click)="tolakPemohonan(item)" *ngIf="item.status == 1"  color="danger">Tolak Pemohonan</ion-button>
+            <ion-button expand="block" *ngIf="item.statusBayaran == 0 && item.status != 1" color="secondary" (click)="bayaran(item)">Terima Bayaran</ion-button>
+          </div>
+      </ion-card-content>
+    </ion-card>
   </div>
 
 </ion-content>

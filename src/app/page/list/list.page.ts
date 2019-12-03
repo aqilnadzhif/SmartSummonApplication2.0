@@ -56,9 +56,9 @@ export class ListPage implements OnInit {
           return obj.studentID === this.user.id
         })
         console.log(result);
-        this.items= result;
+        this.items= result.reverse();
       }else if(this.rule == 'admin'){
-        this.items= data;
+        this.items= data.reverse();
       }
       
     });
@@ -100,8 +100,20 @@ export class ListPage implements OnInit {
 
     if(this.rule == 'student'){
       dbFire.update(item.key, {status : 1})
+    }else if(this.rule == 'admin'){
+      dbFire.update(item.key, {status : 2, harga : 30})
     }
     
+  }
+
+  bayaran(item){
+    let dbFire = this.afd.list('saman');
+    dbFire.update(item.key, {statusBayaran : 1})
+  }
+
+  tolakPemohonan(item){
+    let dbFire = this.afd.list('saman');
+    dbFire.update(item.key, {status : 3})
   }
 
 }

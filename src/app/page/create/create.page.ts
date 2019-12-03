@@ -147,7 +147,8 @@ export class CreatePage implements OnInit {
       harga : this.harga,
       status : 0,
       masa : this.masa,
-      tarikh : this.tarikh
+      tarikh : this.tarikh,
+      statusBayaran : 0
     }
 
     if(param.baju == null && param.seluar == null && param.kasut == null && param.rambut == null){
